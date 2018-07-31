@@ -1,3 +1,11 @@
+---
+title: mybatis generator使用总结
+category:
+ -mybatis
+---
+
+
+
 # mybatis generator使用总结
 
 MyBatis Generator(MBG)是面向MyBatis的代码生成工具。目前支持ibatis的2.2.0以后的版本和MyBatis的所有版本。使用者通过简单的配置即可基于数据库中已创建的数据表快速生成Pojo以及增删改查操作。
