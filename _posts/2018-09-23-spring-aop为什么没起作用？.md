@@ -8,6 +8,8 @@ Spring Aop是Spring杀手锏功能之一，Aop可以在不改变原有代码的�
 
 ## 问题重现
 
+
+
 首先是接口和实现类
 
 ```java
@@ -67,6 +69,8 @@ public class AopMain {
 
 ## 原因分析
 
+
+
 所以原理是什么？在spring中，aop是通过代理机制实现的,如果我们在其他service中调用show方法，那么方法最终实际上是在代理类中调用的，调用过程会像下面这样（仅做演示，实际实现细节并非这样）：
 
 ```java
@@ -93,6 +97,8 @@ public class CoreControllerProxy{
 在调用invokeShow方法的时候，肯定已经存在CoreControllerImpl对象的，在invokeShow方法中再调用show就会直接调用已有对象中的方法，而不再走代理了。
 
 ## 解决方法
+
+
 
 aop没有执行的原因是在类内部调用的时候没有走代理，所以解决方案就是让show()方法在调用的时候仍通过代理类来调用。你可以修改代码，避免同一个类中的方法调用，如果修改不便，也可以通过下面几个方法解决；
 
